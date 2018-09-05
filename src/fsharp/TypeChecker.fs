@@ -8047,7 +8047,7 @@ and TcComputationExpression cenv env overallTy mWhole interpExpr builderTy tpenv
             let clauses = clauses |> List.map (fun (Clause(pat, cond, innerComp, patm, sp)) -> Clause(pat, cond, transNoQueryOps innerComp, patm, sp))
             Some(translatedCtxt (SynExpr.Match(spMatch, expr, clauses, false, m)))
 
-        // 'match! expr with pats ...' --> build.Bind(e1, (function pats ...))
+        // 'letmatch! expr with pats ...' --> build.Bind(e1, (function pats ...))
         | SynExpr.MatchBang (spMatch, expr, clauses, false, m) ->
             let mMatch = match spMatch with SequencePointAtBinding mMatch -> mMatch | _ -> m
             if isQuery then error(Error(FSComp.SR.tcMatchMayNotBeUsedWithQuery(), mMatch))

@@ -29,13 +29,19 @@ let x = Some 1
 let y = Some "A"
 let z : float option = None
 
-let foo =
+let foo : string option =
     opt {
         let! x' = x
         let! y' = y
         let! z' = z
-        return sprintf "x = %d, y = %s, z = %f" x y z
+        return sprintf "x = %d, y = %s, z = %f" x' y' z'
     }
+
+match foo with
+| Some s -> printf "Some (%s)" s
+| None -> printf "None"
+
+System.Threading.Thread.Sleep(10000)
 
 (*
 let foo' =
