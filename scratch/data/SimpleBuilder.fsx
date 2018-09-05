@@ -22,24 +22,36 @@ type OptionalBuilder =
 
     member __.Return(x) =
         Some x
+
+    member __.Delay(thunk : unit -> 'a option) : 'a option =
+        thunk ()
+
+    member __.Combine(x : unit option, y : 'a option) : 'a option =
+        match x with
+        | Some () -> y
+        | None -> None
+
+    member __.Zero() : unit option =
+        Some ()
     
 let opt = OptionalBuilder()
 
 let x = Some 1
-let y = Some "A"
-let z : float option = None
+let y = opt { return "A" }
+let z = Some 3.5
 
 let foo : string option =
     opt {
         let! x' = x
-        let! y' = y
+        letmatch! y with
+        | yValue -> printfn "y was set to %s!" yValue
         let! z' = z
-        return sprintf "x = %d, y = %s, z = %f" x' y' z'
+        return sprintf "x = %d, z = %f" x' z'
     }
 
 match foo with
-| Some s -> printf "Some (%s)" s
-| None -> printf "None"
+| Some s -> printfn "Some (%s)" s
+| None -> printfn "None"
 
 System.Threading.Thread.Sleep(10000)
 
