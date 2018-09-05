@@ -798,8 +798,8 @@
         <note />
       </trans-unit>
       <trans-unit id="Parser.TOKEN.MATCH.BANG">
-        <source>keyword 'match!'</source>
-        <target state="new">keyword 'match!'</target>
+        <source>keyword 'letmatch!'</source>
+        <target state="new">keyword 'letmatch!'</target>
         <note />
       </trans-unit>
       <trans-unit id="Parser.TOKEN.MUTABLE">

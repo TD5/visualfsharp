@@ -595,7 +595,7 @@
     <value>keyword 'match'</value>
   </data>
   <data name="Parser.TOKEN.MATCH.BANG" xml:space="preserve">
-    <value>keyword 'match!'</value>
+    <value>keyword 'letmatch!'</value>
   </data>
   <data name="Parser.TOKEN.MUTABLE" xml:space="preserve">
     <value>keyword 'mutable'</value>
