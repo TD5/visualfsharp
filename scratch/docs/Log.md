@@ -73,3 +73,6 @@ Parts of compiler to explore following on from the `match!` PR:
 Good news! The [RFC process](https://fsharp.github.io/2016/09/26/fsharp-rfc-process.html) isn't very heavyweight.
 
 Interesting existing annoyance, no idea if it's easily fixable: I tried to use a `match!` to do some `printf`-ing, but got the "You haven't defined `Zero`" error. Okay, so I implement that, then I get the same for `Combine`. I'd have liked to have had all of the errors at once to avoid multiple build & run iterations.
+
+...Now I need a `Delay` too! 😄
+
